@@ -28,4 +28,10 @@ public class InstructorsServiceImpl implements InstructorsService {
         return instructorsRepository.getInstructorById(id);
     }
 
+    @Override
+    public Instructors updateInstructorById(Integer instructorId, InstructorRequest instructorsRequest) {
+        return instructorsRepository.updateInstructorById(instructorId,instructorsRequest);
+    }
+
+
 }

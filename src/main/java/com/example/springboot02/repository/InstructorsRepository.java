@@ -32,4 +32,13 @@ public interface InstructorsRepository {
 """)
     @ResultMap("instructorMapper")
     public Instructors getInstructorById(Integer id);
+
+
+    @Select("""
+    UPDATE instructors 
+    SET instructor_name = #{request.instructorName}, email = #{request.instructorEmail}
+    WHERE instructor_id = #{id} returning *
+""")
+    @ResultMap("instructorMapper")
+    public Instructors updateInstructorById(Integer id,@Param("request") InstructorRequest instructorsRequest);
 }

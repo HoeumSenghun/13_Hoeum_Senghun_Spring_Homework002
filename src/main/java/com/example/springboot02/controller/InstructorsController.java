@@ -30,5 +30,10 @@ public class InstructorsController {
     public Instructors getInstructorById(@PathVariable("instructor-id") Integer instructorId){
         return instructorsService.getInstructorById(instructorId);
     }
+    //updateInstructorById
+    @PutMapping("/{instructor-id}")
+    public Instructors updateInstructorById(@RequestBody InstructorRequest instructorsRequest, @PathVariable("instructor-id") Integer instructorId){
+        return instructorsService.updateInstructorById(instructorId,instructorsRequest);
+    }
 
 }
