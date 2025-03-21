@@ -1,10 +1,8 @@
 package com.example.springboot02.repository;
 
+import com.example.springboot02.model.dto.request.InstructorRequest;
 import com.example.springboot02.model.entity.Instructors;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,4 +19,11 @@ public interface InstructorsRepository {
 
     })
     public List<Instructors> getAllInstructors();
+
+    @Select("""
+    INSERT INTO instructors(instructor_name, email) VALUES(#{request.instructorName}, #{request.instructorEmail})
+    returning *
+""")
+    @ResultMap("instructorMapper")
+    public Instructors createInstructor(@Param("request" ) InstructorRequest instructorRequest);
 }

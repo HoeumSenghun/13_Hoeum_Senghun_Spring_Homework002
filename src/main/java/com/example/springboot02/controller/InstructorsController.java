@@ -1,11 +1,9 @@
 package com.example.springboot02.controller;
 
+import com.example.springboot02.model.dto.request.InstructorRequest;
 import com.example.springboot02.model.entity.Instructors;
 import com.example.springboot02.service.InstructorsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,10 +15,15 @@ public class InstructorsController {
     public InstructorsController(InstructorsService instructorsService) {
         this.instructorsService = instructorsService;
     }
-
+    //getAllInstructors
     @GetMapping
     public List<Instructors> getAllInstructors(@RequestParam(defaultValue = "0") Integer offset, @RequestParam(defaultValue = "5") Integer Limit){
         return instructorsService.getAllInstructors();
+    }
+    //postInstructor
+    @PostMapping
+    public Instructors createInstructor(@RequestBody InstructorRequest instructorsRequest){
+        return instructorsService.createInstructor(instructorsRequest);
     }
 
 }

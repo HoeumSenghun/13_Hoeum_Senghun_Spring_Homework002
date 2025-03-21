@@ -1,5 +1,6 @@
 package com.example.springboot02.service.Impl;
 
+import com.example.springboot02.model.dto.request.InstructorRequest;
 import com.example.springboot02.model.entity.Instructors;
 import com.example.springboot02.repository.InstructorsRepository;
 import com.example.springboot02.service.InstructorsService;
@@ -16,4 +17,10 @@ public class InstructorsServiceImpl implements InstructorsService {
     public List<Instructors> getAllInstructors() {
         return instructorsRepository.getAllInstructors();
     }
+
+    @Override
+    public Instructors createInstructor(InstructorRequest instructorRequest) {
+        return instructorsRepository.createInstructor(instructorRequest);
+    }
+
 }
