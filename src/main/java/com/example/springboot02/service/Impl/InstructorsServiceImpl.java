@@ -23,4 +23,9 @@ public class InstructorsServiceImpl implements InstructorsService {
         return instructorsRepository.createInstructor(instructorRequest);
     }
 
+    @Override
+    public Instructors getInstructorById(Integer id) {
+        return instructorsRepository.getInstructorById(id);
+    }
+
 }

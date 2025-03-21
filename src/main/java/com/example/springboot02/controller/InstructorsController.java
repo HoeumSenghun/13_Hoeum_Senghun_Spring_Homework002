@@ -25,5 +25,10 @@ public class InstructorsController {
     public Instructors createInstructor(@RequestBody InstructorRequest instructorsRequest){
         return instructorsService.createInstructor(instructorsRequest);
     }
+    //getInstructorById
+    @GetMapping("/{instructor-id}")
+    public Instructors getInstructorById(@PathVariable("instructor-id") Integer instructorId){
+        return instructorsService.getInstructorById(instructorId);
+    }
 
 }

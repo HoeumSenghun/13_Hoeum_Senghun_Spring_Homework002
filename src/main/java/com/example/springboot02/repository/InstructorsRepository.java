@@ -26,4 +26,10 @@ public interface InstructorsRepository {
 """)
     @ResultMap("instructorMapper")
     public Instructors createInstructor(@Param("request" ) InstructorRequest instructorRequest);
+
+    @Select("""
+    SELECT * FROM instructors WHERE instructor_id = #{id}
+""")
+    @ResultMap("instructorMapper")
+    public Instructors getInstructorById(Integer id);
 }

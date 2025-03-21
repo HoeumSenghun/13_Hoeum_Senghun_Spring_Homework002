@@ -8,4 +8,5 @@ import java.util.List;
 public interface InstructorsService {
     public List<Instructors> getAllInstructors();
     public Instructors createInstructor(InstructorRequest instructorRequest);
+    public Instructors getInstructorById(Integer id);
 }
