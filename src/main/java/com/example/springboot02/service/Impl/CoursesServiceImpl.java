@@ -1,5 +1,6 @@
 package com.example.springboot02.service.Impl;
 
+import com.example.springboot02.model.dto.request.CourseRequest;
 import com.example.springboot02.model.entity.Courses;
 import com.example.springboot02.repository.CoursesRepository;
 import com.example.springboot02.service.CoursesService;
@@ -19,4 +20,14 @@ public class CoursesServiceImpl implements CoursesService {
         Integer page = (offset - 1) * limit;
         return coursesRepository.getAllCourses(page, limit);
     }
+
+    @Override
+    public Courses addCourse(CourseRequest courseRequest) {
+        return coursesRepository.addCourses(courseRequest);
+    }
+
+//    @Override
+//    public Courses updateCourse(Integer id, CourseRequest courseRequest) {
+//        return coursesRepository.updateCourse(id, courseRequest);
+//    }
 }
