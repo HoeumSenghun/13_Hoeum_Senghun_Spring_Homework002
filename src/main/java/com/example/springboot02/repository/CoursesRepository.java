@@ -17,7 +17,8 @@ public interface CoursesRepository {
             @Result(property= "courseId", column = "course_id"),
             @Result(property= "courseName", column = "course_name"),
             @Result(property= "description", column = "description"),
-            @Result(property = "instructor", column = "instructor_id", one = @One (select = "com.example.springboot02.repository.InstructorsRepository.getInstructorById"))
+            @Result(property = "instructor", column = "instructor_id",
+                    one = @One (select = "com.example.springboot02.repository.InstructorsRepository.getInstructorById"))
     })
     public List<Courses> getAllCourses(Integer page, Integer limit);
 
