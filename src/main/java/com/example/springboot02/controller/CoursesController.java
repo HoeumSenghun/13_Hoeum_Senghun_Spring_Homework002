@@ -24,9 +24,19 @@ public class CoursesController {
     public Courses addCourse(@RequestBody CourseRequest courseRequest) {
         return coursesService.addCourse(courseRequest);
     }
-//    //update
-//    @PutMapping("/{course-id}")
-//    public Courses updateCourse(@PathVariable ("course-id") Integer id, @RequestBody CourseRequest courseRequest) {
-//        return coursesService.updateCourse(id,courseRequest);
+    //update
+    @PutMapping("/{course-id}")
+    public Courses updateCourse(@PathVariable ("course-id") Integer id, @RequestBody CourseRequest courseRequest) {
+        return coursesService.updateCourse(id,courseRequest);
+    }
+//    getcourseid
+    @GetMapping("/{course-id}")
+    public Courses getCourseById(@PathVariable ("course-id") Integer id) {
+        return coursesService.getCourseById(id);
+    }
+    //delete
+//    @DeleteMapping("/{course-id}")
+//    public Courses deleteCourse(@PathVariable ("course-id") Integer id) {
+//        return coursesService.deleteCourse(id);
 //    }
 }

@@ -26,8 +26,18 @@ public class CoursesServiceImpl implements CoursesService {
         return coursesRepository.addCourses(courseRequest);
     }
 
+    @Override
+    public Courses updateCourse(Integer id, CourseRequest courseRequest) {
+        return coursesRepository.updateCourse(id, courseRequest);
+    }
+
+    @Override
+    public Courses getCourseById(Integer id) {
+        return coursesRepository.getCourseById(id);
+    }
+
 //    @Override
-//    public Courses updateCourse(Integer id, CourseRequest courseRequest) {
-//        return coursesRepository.updateCourse(id, courseRequest);
+//    public Courses deleteCourse(Integer id) {
+//        return coursesRepository.deleteCourse(id);
 //    }
 }

@@ -10,5 +10,9 @@ public interface CoursesService {
 
     public Courses addCourse(CourseRequest courseRequest);
 
-//    public Courses updateCourse(Integer id, CourseRequest courseRequest);
+    public Courses updateCourse(Integer id, CourseRequest courseRequest);
+
+    public Courses getCourseById(Integer id);
+
+//    public Courses deleteCourse(Integer id);
 }
