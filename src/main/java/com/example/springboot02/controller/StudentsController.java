@@ -1,5 +1,7 @@
 package com.example.springboot02.controller;
 
+import com.example.springboot02.model.dto.request.StudentRequest;
+import com.example.springboot02.model.entity.StudentCourses;
 import com.example.springboot02.model.entity.Students;
 import com.example.springboot02.service.StudentsService;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,11 @@ public class StudentsController {
     @GetMapping("/{student-id}")
     public Students getStudentById(@PathVariable ("student-id") Integer studentId) {
         return studentsService.getStudentById(studentId);
+    }
+    //AddStudent
+    @PostMapping
+    public Students addStudent(@RequestBody StudentRequest studentRequest) {
+        return null;
     }
 
 }

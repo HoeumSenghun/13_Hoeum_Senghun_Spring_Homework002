@@ -1,5 +1,9 @@
 package com.example.springboot02.repository;
 
+import com.example.springboot02.model.dto.request.CourseRequest;
+import com.example.springboot02.model.dto.request.StudentRequest;
+import com.example.springboot02.model.entity.Courses;
+import com.example.springboot02.model.entity.StudentCourses;
 import com.example.springboot02.model.entity.Students;
 import org.apache.ibatis.annotations.*;
 
@@ -33,4 +37,16 @@ public interface StudentsRepository {
     @ResultMap("studentMapper")
     Students getStudentById(Integer id);
 
+    @Select("""
+    INSERT INTO students (student_name, student_email, phone_number) VALUES (#{studentName}, #{studentEmail}, #{phoneNumber});
+    RETURNING *;
+""")
+    @ResultMap("studentMapper")
+    Students addStudent(StudentRequest studentRequest);
+    @Select("""
+    INSERT INTO student_course (student_id, course_id) VALUES (#{studentId},#{courseId});
+    RETURNING *;
+""")
+    @ResultMap("studentMapper")
+    StudentCourses addCourse(Integer studentId, Integer courseId);
 }
