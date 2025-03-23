@@ -14,5 +14,5 @@ public interface CoursesService {
 
     public Courses getCourseById(Integer id);
 
-//    public Courses deleteCourse(Integer id);
+    public Courses deleteCourse(Integer id);
 }

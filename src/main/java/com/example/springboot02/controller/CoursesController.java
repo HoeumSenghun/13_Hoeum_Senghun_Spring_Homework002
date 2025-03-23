@@ -35,8 +35,8 @@ public class CoursesController {
         return coursesService.getCourseById(id);
     }
     //delete
-//    @DeleteMapping("/{course-id}")
-//    public Courses deleteCourse(@PathVariable ("course-id") Integer id) {
-//        return coursesService.deleteCourse(id);
-//    }
+    @DeleteMapping("/{course-id}")
+    public Courses deleteCourse(@PathVariable ("course-id") Integer id) {
+        return coursesService.deleteCourse(id);
+    }
 }

@@ -42,9 +42,10 @@ public interface CoursesRepository {
     @ResultMap("coursesMapper")
     Courses getCourseById(Integer id);
 
-//    @Select("""
-//    DELETE FROM courses WHERE course_id = #{id}
-//    RETURNING *
-//""")
-//    Courses deleteCourse(Integer id);
+    @Select("""
+    DELETE FROM courses WHERE course_id = #{id}
+    RETURNING *
+""")
+    @ResultMap("coursesMapper")
+    Courses deleteCourse(Integer id);
 }
