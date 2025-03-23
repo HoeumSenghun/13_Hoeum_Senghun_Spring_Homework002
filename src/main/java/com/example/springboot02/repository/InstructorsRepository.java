@@ -37,8 +37,15 @@ public interface InstructorsRepository {
     @Select("""
     UPDATE instructors 
     SET instructor_name = #{request.instructorName}, email = #{request.instructorEmail}
-    WHERE instructor_id = #{id} returning *
+    WHERE instructor_id = #{id} RETURNING *
 """)
     @ResultMap("instructorMapper")
     public Instructors updateInstructorById(Integer id,@Param("request") InstructorRequest instructorsRequest);
+
+    @Select("""
+    DELETE FROM instructors 
+    WHERE instructor_id = #{id} RETURNING *
+""")
+    @ResultMap("instructorMapper")
+    public Instructors deleteInstructorById(Integer id);
 }

@@ -10,4 +10,5 @@ public interface InstructorsService {
     public Instructors createInstructor(InstructorRequest instructorRequest);
     public Instructors getInstructorById(Integer id);
     public Instructors updateInstructorById(Integer instructorId, InstructorRequest instructorsRequest);
+    public Instructors deleteInstructorById(Integer id);
 }

@@ -33,5 +33,10 @@ public class InstructorsServiceImpl implements InstructorsService {
         return instructorsRepository.updateInstructorById(instructorId,instructorsRequest);
     }
 
+    @Override
+    public Instructors deleteInstructorById(Integer id) {
+        return instructorsRepository.deleteInstructorById(id);
+    }
+
 
 }

@@ -35,5 +35,10 @@ public class InstructorsController {
     public Instructors updateInstructorById(@RequestBody InstructorRequest instructorsRequest, @PathVariable("instructor-id") Integer instructorId){
         return instructorsService.updateInstructorById(instructorId,instructorsRequest);
     }
+    @DeleteMapping("/{instructor-id}")
+    public Instructors deleteInstructorById(@PathVariable("instructor-id") Integer id){
+        return instructorsService.deleteInstructorById(id);
+    }
 
 }
+ 
