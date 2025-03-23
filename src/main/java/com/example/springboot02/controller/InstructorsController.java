@@ -17,7 +17,7 @@ public class InstructorsController {
     }
     //getAllInstructors
     @GetMapping
-    public List<Instructors> getAllInstructors(@RequestParam(defaultValue = "0") Integer offset, @RequestParam(defaultValue = "5") Integer Limit){
+    public List<Instructors> getAllInstructors(@RequestParam(defaultValue = "1") Integer offset, @RequestParam(defaultValue = "10") Integer Limit){
         return instructorsService.getAllInstructors();
     }
     //postInstructor
