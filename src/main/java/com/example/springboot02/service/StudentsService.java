@@ -9,5 +9,6 @@ import java.util.List;
 public interface StudentsService {
     public List<Students> getAllStudents(Integer offset, Integer limit);
     public Students getStudentById(Integer id);
-    public Students addStudent(StudentRequest studentRequest);
+//    public Students addStudent(StudentRequest studentRequest);
+    public Students deleteStudentById(Integer id);
 }

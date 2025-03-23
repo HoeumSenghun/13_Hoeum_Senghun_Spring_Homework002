@@ -37,16 +37,24 @@ public interface StudentsRepository {
     @ResultMap("studentMapper")
     Students getStudentById(Integer id);
 
+//    @Select("""
+//    INSERT INTO students (student_name, student_email, phone_number) VALUES (#{studentName}, #{studentEmail}, #{phoneNumber});
+//    RETURNING *;
+//""")
+//    @ResultMap("studentMapper")
+//    Students addStudent(StudentRequest studentRequest);
+//    @Select("""
+//    INSERT INTO student_course (student_id, course_id) VALUES (#{studentId},#{courseId});
+//    RETURNING *;
+//""")
+//    @ResultMap("studentMapper")
+//    StudentCourses addCourse(Integer studentId, Integer courseId);
+
     @Select("""
-    INSERT INTO students (student_name, student_email, phone_number) VALUES (#{studentName}, #{studentEmail}, #{phoneNumber});
-    RETURNING *;
+    DELETE FROM students
+    WHERE student_id = #{id}
+    RETURNING *
 """)
     @ResultMap("studentMapper")
-    Students addStudent(StudentRequest studentRequest);
-    @Select("""
-    INSERT INTO student_course (student_id, course_id) VALUES (#{studentId},#{courseId});
-    RETURNING *;
-""")
-    @ResultMap("studentMapper")
-    StudentCourses addCourse(Integer studentId, Integer courseId);
+    public Students deleteStudentById(Integer id);
 }

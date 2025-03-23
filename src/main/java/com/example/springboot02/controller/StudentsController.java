@@ -27,9 +27,13 @@ public class StudentsController {
         return studentsService.getStudentById(studentId);
     }
     //AddStudent
-    @PostMapping
-    public Students addStudent(@RequestBody StudentRequest studentRequest) {
-        return null;
+//    @PostMapping
+//    public Students addStudent(@RequestBody StudentRequest studentRequest) {
+//        return null;
+//    }
+    //deleteStudentById
+    @DeleteMapping("/{student-id}")
+    public Students deleteStudentById(@PathVariable ("student-id") Integer studentId) {
+        return studentsService.deleteStudentById(studentId);
     }
-
 }

@@ -31,14 +31,17 @@ public class StudentsServiceImpl implements StudentsService {
         return studentsRepository.getStudentById(id);
     }
 
+//    @Override
+//    public Students addStudent(StudentRequest studentRequest) {
+//        Students students = studentsRepository.addStudent(studentRequest);
+//        for (Integer courseId : studentRequest.getCourseId()){
+//            coursesRepository.addCourses(studentRequest.getCourseId());
+//        }
+//        return studentsRepository.addStudent(studentRequest);
+//    }
     @Override
-    public Students addStudent(StudentRequest studentRequest) {
-        Students students = studentsRepository.addStudent(studentRequest);
-        for (Integer courseId : studentRequest.getCourseId()){
-            coursesRepository.addCourses(students., courseId);
-        }
-        return studentsRepository.addStudent(students.getStudentId());
+    public Students deleteStudentById(Integer id) {
+        return studentsRepository.getStudentById(id);
     }
-
 
 }
