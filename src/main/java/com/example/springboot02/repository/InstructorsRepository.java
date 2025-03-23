@@ -10,7 +10,8 @@ import java.util.List;
 public interface InstructorsRepository {
 
     @Select("""
-    SELECT * FROM instructors;
+    SELECT * FROM instructors
+    offset #{page} limit #{limit}
 """)
     @Results(id = "instructorMapper", value = {
             @Result(property = "instructorId", column = "instructor_id"),
@@ -18,7 +19,7 @@ public interface InstructorsRepository {
             @Result(property = "instructorEmail", column = "email")
 
     })
-    public List<Instructors> getAllInstructors();
+    public List<Instructors> getAllInstructors(Integer page, Integer limit);
 
     @Select("""
     INSERT INTO instructors(instructor_name, email) VALUES(#{request.instructorName}, #{request.instructorEmail})

@@ -12,12 +12,13 @@ import java.util.List;
 public interface CoursesRepository {
 
     @Select("""
-    SELECT * FROM courses;
+    SELECT * FROM courses
+    offset #{page} limit #{limit}
 """)
     @Results(id = "coursesMapper", value = {
             @Result(property= "courseId", column = "course_id"),
             @Result(property= "courseName", column = "course_name"),
             @Result(property= "description", column = "description")
     })
-    public List<Courses> getAllCourses();
+    public List<Courses> getAllCourses(Integer page, Integer limit);
 }

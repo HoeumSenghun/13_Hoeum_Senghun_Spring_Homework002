@@ -14,8 +14,9 @@ public class InstructorsServiceImpl implements InstructorsService {
         this.instructorsRepository = instructorsRepository;
     }
     @Override
-    public List<Instructors> getAllInstructors() {
-        return instructorsRepository.getAllInstructors();
+    public List<Instructors> getAllInstructors(Integer offset, Integer limit) {
+        Integer page = (offset - 1) * limit;
+        return instructorsRepository.getAllInstructors(page,limit);
     }
 
     @Override

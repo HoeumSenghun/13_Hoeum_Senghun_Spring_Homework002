@@ -15,7 +15,8 @@ public class CoursesServiceImpl implements CoursesService {
     }
 
     @Override
-    public List<Courses> getAllCourses() {
-        return coursesRepository.getAllCourses();
+    public List<Courses> getAllCourses(Integer offset, Integer limit) {
+        Integer page = (offset - 1) * limit;
+        return coursesRepository.getAllCourses(page, limit);
     }
 }

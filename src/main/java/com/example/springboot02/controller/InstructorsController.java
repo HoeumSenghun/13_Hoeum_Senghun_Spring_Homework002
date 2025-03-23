@@ -18,7 +18,7 @@ public class InstructorsController {
     //getAllInstructors
     @GetMapping
     public List<Instructors> getAllInstructors(@RequestParam(defaultValue = "1") Integer offset, @RequestParam(defaultValue = "10") Integer Limit){
-        return instructorsService.getAllInstructors();
+        return instructorsService.getAllInstructors(offset, Limit);
     }
     //postInstructor
     @PostMapping
@@ -35,6 +35,7 @@ public class InstructorsController {
     public Instructors updateInstructorById(@RequestBody InstructorRequest instructorsRequest, @PathVariable("instructor-id") Integer instructorId){
         return instructorsService.updateInstructorById(instructorId,instructorsRequest);
     }
+    //deleteById
     @DeleteMapping("/{instructor-id}")
     public Instructors deleteInstructorById(@PathVariable("instructor-id") Integer id){
         return instructorsService.deleteInstructorById(id);
