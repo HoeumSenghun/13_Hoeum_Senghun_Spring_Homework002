@@ -9,7 +9,9 @@ import java.util.List;
 public interface StudentsRepository {
 
     @Select("""
-    SELECT st.student_id, st.student_name, st.email, st.phone_number, sc.course_id FROM student_course sc INNER JOIN students st ON sc.student_id = st.student_id
+    SELECT st.student_id, st.student_name, st.email, st.phone_number, sc.course_id 
+    FROM student_course sc 
+        INNER JOIN students st ON sc.student_id = st.student_id
     offset #{page} limit #{limit}
 """)
     @Results(id = "studentMapper", value = {
@@ -23,5 +25,12 @@ public interface StudentsRepository {
     })
     List<Students> getAllStudents(Integer page, Integer limit);
 
+    @Select("""
+    SELECT st.student_id, st.student_name, st.email, st.phone_number, sc.course_id 
+    FROM student_course sc 
+        INNER JOIN students st ON sc.student_id = st.student_id WHERE st.student_id = #{id}
+""")
+    @ResultMap("studentMapper")
+    Students getStudentById(Integer id);
 
 }

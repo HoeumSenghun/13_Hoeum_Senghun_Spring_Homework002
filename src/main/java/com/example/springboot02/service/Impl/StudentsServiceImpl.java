@@ -20,4 +20,9 @@ public class StudentsServiceImpl implements StudentsService {
         Integer page = (offset - 1) * limit;
         return studentsRepository.getAllStudents(page, limit);
     }
+
+    @Override
+    public Students getStudentById(Integer id) {
+        return studentsRepository.getStudentById(id);
+    }
 }

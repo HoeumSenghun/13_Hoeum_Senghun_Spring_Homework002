@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface StudentsService {
     public List<Students> getAllStudents(Integer offset, Integer limit);
+    public Students getStudentById(Integer id);
 }
